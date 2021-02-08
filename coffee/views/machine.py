@@ -1,7 +1,6 @@
 """
 Coffee Machines ListAPIView for querying and listing . 
 """
-
 from django.http import JsonResponse
 from rest_framework import generics
 from coffee.models.machine import Machine
@@ -46,7 +45,7 @@ class MachineView(generics.ListAPIView):
         """
         Parameters
         ----------
-        request: Requets
+        request: Requests
             a GET Http request
 
         Returns
