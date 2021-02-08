@@ -33,3 +33,4 @@ class PodView(generics.ListAPIView):
         except Exception as e:
             return JsonResponse({'message: Please make sure all the fields are valid.'}
                                                                     ,safe=False, status=400)
+
