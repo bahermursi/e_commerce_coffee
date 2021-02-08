@@ -10,7 +10,7 @@ from coffee.serializers.pod import PodValidationSerializer
 
 class PodView(generics.ListAPIView):
     """
-    A Pod View class for implementing a GET API for listing the available machines in the database
+    A Pod View class for implementing a GET API for listing the available pods in the database
 
     ...
     Methods
@@ -46,7 +46,7 @@ class PodView(generics.ListAPIView):
         """
         Parameters
         ----------
-        request: Requets
+        request: Requests
             a GET Http request
 
         Returns
