@@ -17,7 +17,7 @@ class MachineView(generics.ListAPIView):
     -------
     get_queryset()
         fetches the machines query parameters if available in the request to filter the Machine queryset
-    get()
+    get(request)
         returns a JSON response with filtered data as a list of objects or an error message
     """
 
@@ -47,7 +47,7 @@ class MachineView(generics.ListAPIView):
         Parameters
         ----------
         request: Requets
-            an GET Http request
+            a GET Http request
 
         Returns
         -------

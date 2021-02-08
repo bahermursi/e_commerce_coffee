@@ -17,7 +17,7 @@ class PodView(generics.ListAPIView):
     -------
     get_queryset()
         fetches the pods query parameters if available in the request to filter the Pod queryset
-    get()
+    get(request)
         returns a JSON response with filtered data as a list of objects or an error message
     """
 
@@ -42,12 +42,12 @@ class PodView(generics.ListAPIView):
         if pack_size: kwargs.update({'{0}'.format('pack_size'): pack_size})
         return self.queryset.filter(**kwargs)
 
-    def get(self, request , *args, **kwargs):
+    def get(self, request):
         """
         Parameters
         ----------
         request: Requets
-            an GET Http request
+            a GET Http request
 
         Returns
         -------
