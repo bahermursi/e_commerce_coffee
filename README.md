@@ -4,7 +4,7 @@ Django E-commerce Coffee
 
 # How to run:
 
-install requirements.txt
+Install dependencies
 ```bash
 pip3 install -r requirements.txt
 ```
