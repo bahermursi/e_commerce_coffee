@@ -9,24 +9,12 @@
 			"name": "Get Machines",
 			"request": {
 				"auth": {
-					"type": "oauth2",
-					"oauth2": [
-						{
-							"key": "headerPrefix",
-							"value": "",
-							"type": "string"
-						},
-						{
-							"key": "addTokenTo",
-							"value": "header",
-							"type": "string"
-						}
-					]
+					"type": "noauth"
 				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{BaseURL}}/machines?product_type=COFFEE_MACHINE_LARGE",
+					"raw": "{{BaseURL}}/machines",
 					"host": [
 						"{{BaseURL}}"
 					],
@@ -37,7 +25,8 @@
 						{
 							"key": "product_type",
 							"value": "COFFEE_MACHINE_LARGE",
-							"description": "{COFFEE_MACHINE_LARGE, COFFEE_MACHINE_SMALL, ESPRESSO_MACHINE\n}"
+							"description": "{COFFEE_MACHINE_LARGE, COFFEE_MACHINE_SMALL, ESPRESSO_MACHINE\n}",
+							"disabled": true
 						},
 						{
 							"key": "water_line_compatible",
@@ -54,19 +43,7 @@
 			"name": "Get Pods",
 			"request": {
 				"auth": {
-					"type": "oauth2",
-					"oauth2": [
-						{
-							"key": "headerPrefix",
-							"value": "",
-							"type": "string"
-						},
-						{
-							"key": "addTokenTo",
-							"value": "header",
-							"type": "string"
-						}
-					]
+					"type": "noauth"
 				},
 				"method": "GET",
 				"header": [],
