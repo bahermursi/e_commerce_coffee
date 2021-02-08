@@ -1,5 +1,5 @@
 """
-Urls for Coffee  app
+Urls for Coffee app
 """
 # pylint: disable=ungrouped-imports
 from django.urls import path, include

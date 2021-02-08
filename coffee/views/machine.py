@@ -1,5 +1,5 @@
 """
-Coffee Machines ListAPIView for querying and listing the available machines. 
+Coffee Machines ListAPIView for querying and listing . 
 """
 
 from django.http import JsonResponse
@@ -7,13 +7,33 @@ from rest_framework import generics
 from coffee.models.machine import Machine
 from coffee.serializers.machine import MachineSerializer
 from coffee.serializers.machine import MachineValidationSerializer
+from icecream import ic
 
 class MachineView(generics.ListAPIView):
+    """
+    A Machine View class for implementing a GET API for listing the available machines in the database
+
+    ...
+    Methods
+    -------
+    get_queryset()
+        fetches the machines query parameters if available in the request to filter the Machine queryset
+    get()
+        returns a JSON response with filtered data as a list of objects or an error message
+    """
+
+
     http_method_names = ["get"]
     queryset = Machine.objects.all()
     serializer_class = MachineValidationSerializer
     
     def get_queryset(self):
+        """
+        Returns
+        ------
+        django.db.models.query.QuerySet 
+            Machine Model queryset
+        """
         product_type = self.request.query_params.get('product_type', None)
         water_line_compatible = self.request.query_params.get('water_line_compatible', None)
         kwargs = {}
@@ -22,12 +42,19 @@ class MachineView(generics.ListAPIView):
                                     '{0}'.format('water_line_compatible'): water_line_compatible
                                     })
         return self.queryset.filter(**kwargs)
-
-    def get(self, request , *args, **kwargs):
+    
+    def get(self, request):
+        """
+        Parameters
+        ----------
+        request: Requets
+            The sound the animal makes (default is None)
+        """
         try:
             serializer = self.serializer_class(data=request.GET)
             if serializer.is_valid():
                 queryset = self.get_queryset()
+                ic(type(queryset))
                 machines = MachineSerializer(queryset, many=True)
                 machines = machines.data
                 return JsonResponse(machines, safe=False)

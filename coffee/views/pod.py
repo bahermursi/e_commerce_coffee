@@ -9,11 +9,29 @@ from coffee.serializers.pod import PodSerializer
 from coffee.serializers.pod import PodValidationSerializer
 
 class PodView(generics.ListAPIView):
+    """
+    A Pod View class for implementing a GET API for listing the available machines in the database
+
+    ...
+    Methods
+    -------
+    get_queryset()
+        fetches the pods query parameters if available in the request to filter the Pod queryset
+    get()
+        returns a JSON response with filtered data as a list of objects or an error message
+    """
+
     http_method_names = ["get"]
     queryset = Pod.objects.all()
     serializer_class = PodValidationSerializer
 
     def get_queryset(self):
+        """
+        Returns
+        ------
+        django.db.models.query.QuerySet 
+            Pod Model queryset
+        """
         product_type = self.request.query_params.get('product_type', None)
         coffee_flavor = self.request.query_params.get('coffee_flavor', None)
         pack_size = self.request.query_params.get('pack_size', None)
@@ -25,6 +43,16 @@ class PodView(generics.ListAPIView):
         return self.queryset.filter(**kwargs)
 
     def get(self, request , *args, **kwargs):
+        """
+        Parameters
+        ----------
+        request: Requets
+            an GET Http request
+
+        Returns
+        -------
+            A JSON response with filtered data as a list of objects or an error message
+        """
         try:
             serializer = self.serializer_class(data=request.GET)
             if serializer.is_valid():
