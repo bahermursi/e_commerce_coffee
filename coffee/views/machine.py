@@ -1,4 +1,7 @@
-# Create your views here.
+"""
+Coffee Machines ListAPIView for querying and listing the available machines. 
+"""
+
 from django.http import JsonResponse
 from rest_framework import generics
 from coffee.models.machine import Machine

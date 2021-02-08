@@ -1,6 +1,9 @@
+"""
+Coffee Pods model and validation serializers. 
+"""
+
 from coffee.models.pod import Pod
 from rest_framework import serializers
-from icecream import ic
 
 class PodSerializer(serializers.ModelSerializer):
     class Meta:

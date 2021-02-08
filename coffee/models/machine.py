@@ -1,3 +1,7 @@
+"""
+Coffee Machine database model. 
+"""
+
 from django.db import models
 
 PRODUCT_TYPE_CHOICES = (

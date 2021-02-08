@@ -1,0 +1,107 @@
+{
+	"info": {
+		"_postman_id": "f21f86b7-af59-4efc-821a-4278f6d3dbe0",
+		"name": "Coffee APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Machines",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "headerPrefix",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseURL}}/machines?product_type=COFFEE_MACHINE_LARGE",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"machines"
+					],
+					"query": [
+						{
+							"key": "product_type",
+							"value": "COFFEE_MACHINE_LARGE",
+							"description": "{COFFEE_MACHINE_LARGE, COFFEE_MACHINE_SMALL, ESPRESSO_MACHINE\n}"
+						},
+						{
+							"key": "water_line_compatible",
+							"value": "True",
+							"description": "Values are { True, False}",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Pods",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "headerPrefix",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseURL}}/pods/",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"pods",
+						""
+					],
+					"query": [
+						{
+							"key": "product_type",
+							"value": "ESPRESSO_POD",
+							"description": "{COFFEE_POD_LARGE, COFFEE_POD_SMALL, ESPRESSO_POD}",
+							"disabled": true
+						},
+						{
+							"key": "coffee_flavor",
+							"value": "COFFEE_FLAVOR_VANILLA",
+							"description": "{COFFEE_FLAVOR_VANILLA, COFFEE_FLAVOR_CARAMEL, COFFEE_FLAVOR_PSL, COFFEE_FLAVOR_MOCHA, COFFEE_FLAVOR_HAZELNUT}",
+							"disabled": true
+						},
+						{
+							"key": "pack_size",
+							"value": "7_dozen",
+							"description": "{1_dozen, 3_dozen, 4_dozen,7_dozen}",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

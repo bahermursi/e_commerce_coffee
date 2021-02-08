@@ -1,7 +1,10 @@
+"""
+Configure the models to be displayed in the admin portal.
+"""
+
 from django.contrib import admin
 from coffee.models.machine import Machine
 from coffee.models.pod import Pod
-# Register your models here.
 
 class MachineAdmin(admin.ModelAdmin):
     list_display = ['id','product_type','water_line_compatible','description','code']

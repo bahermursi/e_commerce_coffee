@@ -1,3 +1,8 @@
+"""
+Coffee Pods database model. 
+"""
+
+
 from django.db import models
 
 
