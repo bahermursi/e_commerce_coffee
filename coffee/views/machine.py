@@ -7,7 +7,6 @@ from rest_framework import generics
 from coffee.models.machine import Machine
 from coffee.serializers.machine import MachineSerializer
 from coffee.serializers.machine import MachineValidationSerializer
-from icecream import ic
 
 class MachineView(generics.ListAPIView):
     """
@@ -48,13 +47,16 @@ class MachineView(generics.ListAPIView):
         Parameters
         ----------
         request: Requets
-            The sound the animal makes (default is None)
+            an GET Http request
+
+        Returns
+        -------
+            A JSON response with filtered data as a list of objects or an error message
         """
         try:
             serializer = self.serializer_class(data=request.GET)
             if serializer.is_valid():
                 queryset = self.get_queryset()
-                ic(type(queryset))
                 machines = MachineSerializer(queryset, many=True)
                 machines = machines.data
                 return JsonResponse(machines, safe=False)
